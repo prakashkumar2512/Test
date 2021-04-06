@@ -40,9 +40,6 @@ public class JsonStreamingGsonExample {
 		Map<Integer, Tickets> ticketdata = example.readticketdata();
 		displayDataticket.accept(ticketdata);
 
-		System.out.println("");
-		System.out.println("");
-
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Please Enter OrganizationID :- ");
 		input = sc.nextInt();
@@ -116,19 +113,19 @@ public class JsonStreamingGsonExample {
 
 	// for organizations
 	static Consumer<Map<Integer, Organizations>> displayData = orgnization -> {
-		orgnization.forEach((k, v) -> System.out.println(k + " organizations " + v));
+		orgnization.size();
 	}; // END
 
 	// for User
 
 	static Consumer<Map<Integer, Users>> displayDatauser = User -> {
-		User.forEach((k, v) -> System.out.println(k + " Users " + v));
+		User.size();
 
 	}; // END
 
 	// for User
 	static Consumer<Map<Integer, Tickets>> displayDataticket = Ticket -> {
-		Ticket.forEach((k, v) -> System.out.println(k + " Tickets " + v));
+		Ticket.size();
 	}; // // END
 
 	// fetch Organization data
@@ -179,7 +176,7 @@ public class JsonStreamingGsonExample {
 		user.setSignature((String) json1.get("signature"));
 		Integer org_id;
 		if (json1.get("organization_id") == null) {
-			System.out.println("organization_id not present");
+			//System.out.println("organization_id not present");
 			user.setOrganization_id(null);
 		} else {
 			org_id = Integer.parseInt((String) json1.get("organization_id"));
@@ -212,7 +209,7 @@ public class JsonStreamingGsonExample {
 		ticket.setStatus((String) json2.get("status"));
 		Integer submit_id;
 		if (json2.get("submitter_id") == null) {
-			System.out.println("submitter_id not present");
+			//System.out.println("submitter_id not present");
 			ticket.setSubmitter_id(null);
 		} else {
 			submit_id = Integer.parseInt((String) json2.get("submitter_id"));
@@ -220,7 +217,7 @@ public class JsonStreamingGsonExample {
 		}
 		Integer assign_id;
 		if (json2.get("assignee_id") == null) {
-			System.out.println("assignee_id not present");
+			//System.out.println("assignee_id not present");
 			ticket.setAssignee_id(null);
 		} else {
 			assign_id = Integer.parseInt((String) json2.get("assignee_id"));
@@ -228,7 +225,7 @@ public class JsonStreamingGsonExample {
 		}
 		Integer org_id;
 		if (json2.get("organization_id") == null) {
-			System.out.println("organization_id not present");
+			//System.out.println("organization_id not present");
 			ticket.setOrganization_id(null);
 		} else {
 			org_id = Integer.parseInt((String) json2.get("organization_id"));
